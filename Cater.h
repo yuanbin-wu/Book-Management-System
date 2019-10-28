@@ -10,7 +10,8 @@
 #define YELLOW_COLOR     "\e[33m\e[1m%s\e[0m"
 
 
-/********************************类模块********************************/
+/********************************类结构体模块********************************/
+
 //客户结构体声明
 typedef struct _Guest
 {
@@ -64,32 +65,140 @@ typedef struct _Food
 	char name[20]; //菜名
 	double price; //价格
 	Formula formula; //配方
-};
+}Food;
+
+
+
 /*****************************节点结构体模块************************************/
 
-typedef struct _node{
-	void *data;
+typedef struct _node
+{
+	Guest  data;
 	struct _node *next;
-} Node;
+}NodeGuest;
 
-typedef struct _linkedList{
-	Node *head;
-	Node *tail;
-	Node *current;
-} LinkedList;
+typedef struct _node
+{
+	Staff  data;
+	struct _node *next;
+}NodeStaff;
 
+typedef struct _node
+{
+	Boos  data;
+	struct _node *next;
+}NodeBoos;
+
+typedef struct _node
+{
+	Food  data;
+	struct _node *next;
+}NodeFood;
+
+
+
+typedef struct _linkedList
+{
+	NodeGuest *head;
+	NodeGuest *tail;
+	NodeGuest *current;
+}List_Guest;
+
+typedef struct _linkedList
+{
+	NodeStaff *head;
+	NodeStaff *tail;
+	NodeStaff *current;
+}List_Staff;
+
+typedef struct _linkedList
+{
+	NodeBoos *head;
+	NodeBoos *tail;
+	NodeBoos *current;
+}List_Boos;
+
+typedef struct _linkedList
+{
+	NodeFood *head;
+	NodeFood *tail;
+	NodeFood *current;
+}List_Food;
 /*****************************节点处理模块**************************************/
 
-Student *initStu(char *name, int age, double record);
-void outStu(Student *stu);
-void initList(LinkedList *);
-void addHead(LinkedList *, void *);
-void addTail(LinkedList *, void *);
-void delNode(LinkedList *, Node *);
-Node *getNode(LinkedList *, void *);
-void displayList(LinkedList *);
+/**************客户结点处理******************/
 
-/*******************************界面函数模块********************************/
+void initList_Guest(List_Guest *);
+{
+	//DOWN
+}
+
+void addTail_Guest(List_Guest *, Guest );
+{
+	//DOWN
+}
+
+void delNode_Guest(List_Guest *, Guest);
+{
+	//DOWN
+}
+
+void displayList_Guest(List_Guest *);
+{
+	//TODO
+}
+
+/****************员工结点处理****************/
+
+void initList_Staff(List_Staff *);
+void addTail_Staff(List_Staff *, Staff );
+void delNode_Staff(List_Staff *, Staff);
+void displayList_Staff(List_Staff *);
+
+/****************店长结点处理****************/
+
+void initList_Boos(List_Boos *);
+void addTail_Boos(List_Boos *, Boos );
+void delNode_Boos(List_Boos *, Boos);
+void displayList_Boos(List_Boos *);
+
+/****************菜结点处理****************/
+
+void initList_Food(List_Food *);
+void addTail_Food(List_Food *, Food );
+void delNode_Food(List_Food *, Food);
+void displayList_Food(List_Food *);
+
+/*****************************查找模块************************************/
+
+
+
+
+
+
+
+
+/*****************************输入模块************************************/
+
+Food InputFood();
+
+
+
+
+
+
+
+/*****************************输出模块************************************/
+
+
+
+
+
+
+
+
+
+/*****************************界面函数模块*********************************/
 
 
 //用户登入
