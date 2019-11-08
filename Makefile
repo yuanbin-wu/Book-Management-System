@@ -1,2 +1,0 @@
-test:Cater.c
-	
