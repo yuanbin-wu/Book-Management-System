@@ -16,6 +16,7 @@
 typedef struct _Guest
 {
 	int number; //桌号
+	char note[200];//备注
 	void *selected; //已选菜
 	double consume; //消费
 	
@@ -63,7 +64,7 @@ typedef struct _Food
 	int number; //菜号
 	Type type; //类别
 	char name[20]; //菜名
-	double price; //价格
+	float price; //价格
 	Formula formula; //配方
 }Food;
 
@@ -71,54 +72,54 @@ typedef struct _Food
 
 /*****************************节点结构体模块************************************/
 
-typedef struct _node
+typedef struct _nodeguest
 {
 	Guest  data;
-	struct _node *next;
+	struct _nodeguest *next;
 }NodeGuest;
 
-typedef struct _node
+typedef struct _nodestaff
 {
 	Staff  data;
-	struct _node *next;
+	struct _nodestaff *next;
 }NodeStaff;
 
-typedef struct _node
+typedef struct _nodeboos
 {
 	Boos  data;
-	struct _node *next;
+	struct _nodeboos *next;
 }NodeBoos;
 
-typedef struct _node
+typedef struct _nodefood
 {
 	Food  data;
-	struct _node *next;
+	struct _nodefood *next;
 }NodeFood;
 
 
 
-typedef struct _linkedList
+typedef struct _linkedListGuest
 {
 	NodeGuest *head;
 	NodeGuest *tail;
 	NodeGuest *current;
 }List_Guest;
 
-typedef struct _linkedList
+typedef struct _linkedListStaff
 {
 	NodeStaff *head;
 	NodeStaff *tail;
 	NodeStaff *current;
 }List_Staff;
 
-typedef struct _linkedList
+typedef struct _linkedListBoos
 {
 	NodeBoos *head;
 	NodeBoos *tail;
 	NodeBoos *current;
 }List_Boos;
 
-typedef struct _linkedList
+typedef struct _linkedListFood
 {
 	NodeFood *head;
 	NodeFood *tail;
@@ -128,7 +129,7 @@ typedef struct _linkedList
 
 /**************客户结点处理******************/
 
-void initList_Guest(List_Guest *);
+/*void initList_Guest(List_Guest *);
 {
 	//DOWN
 }
@@ -146,27 +147,27 @@ void delNode_Guest(List_Guest *, Guest);
 void displayList_Guest(List_Guest *);
 {
 	//TODO
-}
+}*/
 
 /****************员工结点处理****************/
 
-void initList_Staff(List_Staff *);
-void addTail_Staff(List_Staff *, Staff );
-void delNode_Staff(List_Staff *, Staff);
-void displayList_Staff(List_Staff *);
+//void initList_Staff(List_Staff *);
+//void addTail_Staff(List_Staff *, Staff );
+//void delNode_Staff(List_Staff *, Staff);
+//void displayList_Staff(List_Staff *);
 
 /****************店长结点处理****************/
 
-void initList_Boos(List_Boos *);
-void addTail_Boos(List_Boos *, Boos );
-void delNode_Boos(List_Boos *, Boos);
-void displayList_Boos(List_Boos *);
+//void initList_Boos(List_Boos *);
+//void addTail_Boos(List_Boos *, Boos );
+//void delNode_Boos(List_Boos *, Boos);
+//void displayList_Boos(List_Boos *);
 
 /****************菜结点处理****************/
 
-void initList_Food(List_Food *);
+void initList_Food(List_Food *list);
 void addTail_Food(List_Food *, Food );
-void delNode_Food(List_Food *, Food);
+//void delNode_Food(List_Food *, Food);
 void displayList_Food(List_Food *);
 
 /*****************************查找模块************************************/
@@ -180,6 +181,8 @@ void displayList_Food(List_Food *);
 
 /*****************************输入模块************************************/
 
+Guest PromptGuestInput_Data();
+Food PromptFoodInput_Data();
 Food InputFood();
 
 

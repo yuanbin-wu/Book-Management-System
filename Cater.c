@@ -4,18 +4,26 @@
 
 /********************客户结点处理*********************/
 
-void initList_Guest(List_Guest *list){
+/*void initList_Guest(List_Guest *list){
 	list->head = NULL;
 	list->tail = NULL;
 	list->current = NULL;
 
 	return;
 }
+Guest PromptGuestInput_Data(){
+	Guest *guest;
+	printf("请输入桌号\n");
+	scanf("%d",&(guest->number));
+	printf("有什么要备注的吗？\n");
+	scanf("%s",guest->note);
+
+}
 
 void addTail_Guest(List_Guest *list, Guest data);
 {
 	NodeGuest *node = (NodeGuest *)malloc(sizeof(NodeGuest));
-	node.data = data;
+	node->data = data;
 	node->next = NULL;
 
 	if(list->head == NULL){
@@ -49,32 +57,44 @@ void delNode_Guest(List_Guest *list, NodeGuest node);
 	free(node);
 
 	return;
-}
+}*/
 /*************************客户输出************************/
-void displayList_Guest(List_Guest *);
+/*void displayList_Guest(List_Guest *);
 {
 	NodeGuest *tmp =list->head;
 	while( tmp != NULL )
 	{
 
 	}
-}
+}*/
 
 /**********************************************菜模块**********************************************/
 
 /***************************菜结点处理*************************/
 void initList_Food(List_Food *list){
+	
 	list->head = NULL;
 	list->tail = NULL;
 	list->current = NULL;
 
 	return;
 }
+Food PromptFoodInput_Data(){
+	Food *food;
+	printf("请输入菜号\n");
+	scanf("%d",&(food->number));
+	printf("请输入菜名\n");
+	scanf("%s",food->name);
+	printf("请输入价格\n");
+	scanf("%f",&(food->price));
 
-void addTail_Food(List_Food *list, Food data);
-{
+	return *food;
+
+}
+void addTail_Food(List_Food *list, Food data){
+
 	NodeFood *node = (NodeFood *)malloc(sizeof(NodeFood));
-	node.data = data;
+	node->data = data;
 	node->next = NULL;
 
 	if(list->head == NULL){
@@ -87,7 +107,7 @@ void addTail_Food(List_Food *list, Food data);
 	return;
 }
 
-void delNode_Food(List_Food *list, NodeFood node);
+/*void delNode_Food(List_Food *list, NodeFood node)
 {
 	if(node == list->head){
 		if(list->head->next == NULL){
@@ -107,6 +127,17 @@ void delNode_Food(List_Food *list, NodeFood node);
 
 	free(node);
 
+	return;
+}*/
+void displayList_Food(List_Food *list){
+	NodeFood *tmp =list->head;
+	while( tmp != NULL )
+	{
+		printf("%d\t",tmp->data.number);
+		printf("%s\t",tmp->data.name);
+		printf("%lf\n",tmp->data.price );
+		tmp = tmp->next;
+	}
 	return;
 }
 

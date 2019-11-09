@@ -1,2 +1,2 @@
-test:Cater.c
-	gcc -g Cater.c
+test:Cater.c ceshi.c
+	gcc -g Cater.c ceshi.c -o test
