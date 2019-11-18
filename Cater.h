@@ -74,25 +74,25 @@ typedef struct _Food
 
 typedef struct _nodeguest
 {
-	Guest  data;
+	Guest  *data;
 	struct _nodeguest *next;
 }NodeGuest;
 
 typedef struct _nodestaff
 {
-	Staff  data;
+	Staff  *data;
 	struct _nodestaff *next;
 }NodeStaff;
 
 typedef struct _nodeboos
 {
-	Boos  data;
+	Boos  *data;
 	struct _nodeboos *next;
 }NodeBoos;
 
 typedef struct _nodefood
 {
-	Food  data;
+	Food  *data;
 	struct _nodefood *next;
 }NodeFood;
 
@@ -165,10 +165,10 @@ void displayList_Guest(List_Guest *);
 
 /****************菜结点处理****************/
 
-void initList_Food(List_Food *list);
-void addTail_Food(List_Food *, Food );
+void initList_Food(List_Food *list);//END
+void addTail_Food(List_Food *, Food );//END
 //void delNode_Food(List_Food *, Food);
-void displayList_Food(List_Food *);
+void displayList_Food(List_Food *);//ENF
 
 /*****************************查找模块************************************/
 

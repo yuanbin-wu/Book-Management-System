@@ -71,16 +71,16 @@ void delNode_Guest(List_Guest *list, NodeGuest node);
 /**********************************************菜模块**********************************************/
 
 /***************************菜结点处理*************************/
-void initList_Food(List_Food *list){
+void initList_Food (List_Food *list){
 	
 	list->head = NULL;
 	list->tail = NULL;
 	list->current = NULL;
 
 	return;
-}
-Food PromptFoodInput_Data(){
-	Food *food;
+}//END
+Food *PromptFoodInput_Data(){
+	Food *food = (Food *)malloc(sizeof(Food));
 	printf("请输入菜号\n");
 	scanf("%d",&(food->number));
 	printf("请输入菜名\n");
@@ -88,10 +88,10 @@ Food PromptFoodInput_Data(){
 	printf("请输入价格\n");
 	scanf("%f",&(food->price));
 
-	return *food;
+	return food;
 
-}
-void addTail_Food(List_Food *list, Food data){
+}//END
+void addTail_Food(List_Food *list, Food *data){
 
 	NodeFood *node = (NodeFood *)malloc(sizeof(NodeFood));
 	node->data = data;
@@ -105,8 +105,20 @@ void addTail_Food(List_Food *list, Food data){
 	list->tail = node;
 
 	return;
-}
+}//END
 
+
+void displayList_Food(List_Food *list){
+	NodeFood *tmp =list->head;
+	while( tmp != NULL )
+	{
+		printf("%d\t",tmp->data->number);
+		printf("%s\t",tmp->data->name);
+		printf("%.2f￥\n",tmp->data->price );
+		tmp = tmp->next;
+	}
+	return;
+}//END
 /*void delNode_Food(List_Food *list, NodeFood node)
 {
 	if(node == list->head){
@@ -129,17 +141,7 @@ void addTail_Food(List_Food *list, Food data){
 
 	return;
 }*/
-void displayList_Food(List_Food *list){
-	NodeFood *tmp =list->head;
-	while( tmp != NULL )
-	{
-		printf("%d\t",tmp->data.number);
-		printf("%s\t",tmp->data.name);
-		printf("%lf\n",tmp->data.price );
-		tmp = tmp->next;
-	}
-	return;
-}
+
 
 /************************菜查找*************************/
 
